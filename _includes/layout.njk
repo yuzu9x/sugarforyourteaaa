@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!--- base.njk ---> 
+<head>
+    <meta charset="UTF-8">
+    <img src="{{ '/assets/logos/melisalogo.png' | prefixedUrl }}" alt="melisa" class="logo">
+    <style>
+    @font-face {
+    font-family: 'MainFont';
+    src: url("{{ '/assets/fonts/MainFont.ttf' | prefixedUrl }}") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    }
+    </style>
+
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{'/styles/style.css' | prefixedUrl }}">
+    
+    </head>
+   <body>
+  {% include "nav.njk" %}
+
+  
+  <h1 class="h1main">{{ title }}</h1>
+  <img src="{{ '/assets/images/IMG_4738.jpg' | prefixedUrl }}" alt="little me" 
+    width="400"
+    height="auto"
+    style="margin: 0px 10px; "
+    >
+  <main>{{ content | safe }}</main>
+ 
+  
+
+
+
+ {% include "footer.njk" %}
+
+</body>
+
+</html>

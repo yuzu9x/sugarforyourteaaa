@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!--- base.njk ---> 
+<head>
+    <meta charset="UTF-8">
+
+    <style>
+    @font-face {
+    font-family: 'MainFont';
+    src: url("{{ '/assets/fonts/MainFont.ttf' | prefixedUrl }}") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    }
+    </style>
+
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{'/styles/style.css' | prefixedUrl }}">
+    
+    </head>
+   <body>
+  {% include "nav.njk" %}
+
+ 
+  <img src="{{ '/assets/logos/melisalogo.png' | prefixedUrl }}" alt="melisa" class="logo">
+
+  <img src="{{ '/assets/images/curtain.jpg' | prefixedUrl }}" alt="curtain" 
+    width="600"
+    height="auto"
+    style="margin: 30px 10px; height: auto;"
+    >
+
+  <h1 class="h1main">{{ title }}</h1>
+  
+  <main>{{ content | safe }}</main>
+ 
+
+
+<ul class="posts-list">
+	<!-- loops through all of our md files with the tag 'post' --> 
+  {% for post in collections.post %}
+  <li><a href="{{ post.url | prefixedUrl}}">{{ post.data.title }}</a> – {{ post.date | readableDate  }}</li>
+  {% endfor %}
+</ul>
+
+  <img src="{{ '/assets/images/bannermelisa.jpg' | prefixedUrl }}" alt="banner" 
+    width="600"
+    height="auto"
+    style="margin: 40px 10px; "
+    >
+
+ {% include "footer.njk" %}
+
+</body>
+
+</html>
