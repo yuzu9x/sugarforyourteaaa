@@ -5,19 +5,30 @@
     <meta charset="UTF-8">
 
     <style>
-    @font-face {
-    font-family: 'MainFont';
-    src: url("/assets/fonts/MainFont.ttf") format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    }
+      @font-face {
+        font-family: 'MainFont';
+        src: url("/assets/fonts/MainFont.ttf") format('truetype');
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      #sugar-webgl {
+        width: 100%;
+        height: 500px;
+        margin-top: 40px;
+      }
+
+      canvas {
+        display: block;
+      }
     </style>
 
     <title>Sugar for Your Tea</title>
     <link rel="stylesheet" href="/styles/style.css">
-    
-    </head>
-   <body>
+</head>
+
+<body>
+
    <!-- _includes/nav.njk -->
 <nav>
 	<style>
@@ -35,16 +46,11 @@
 	</ul>
 </nav>
 
- 
-  
-
   <h1 class="h1main">Sugar for Your Tea</h1>
-  <img src="/assets/images/transparentcubes.png" alt="sugar cubes" 
-    width="400"
-    height="200"
-    style="margin: 0px 10px; "
-    >
-  
+
+  <!-- WebGL container (ONLY ONE!) -->
+  <div id="sugar-webgl"></div>
+
   <main><h1>Core Systems Final Fa25</h1>
 <p>Documentation Page for &quot;Sugar for Your Tea&quot;
 <br>
@@ -52,27 +58,22 @@ Sculpture with Found Items + Sugar
 <br>
 by Melisa Li</p>
 </main>
- 
 
+  <ul class="posts-list">
+    
+      <li><a href="/posts/fifth/">5. Final Build</a></li>
+    
+      <li><a href="/posts/first/">1. Introduction</a></li>
+    
+      <li><a href="/posts/fourth/">4. Construction</a></li>
+    
+      <li><a href="/posts/second/">2. My Data</a></li>
+    
+      <li><a href="/posts/third/">3. Worldbuilding</a></li>
+    
+  </ul>
 
-<ul class="posts-list">
-	<!-- loops through all of our md files with the tag 'post' --> 
-  
-  <li><a href="/posts/fifth/">5. Final Build</a>  </li>
-  
-  <li><a href="/posts/first/">1. Introduction</a>  </li>
-  
-  <li><a href="/posts/fourth/">4. Construction</a>  </li>
-  
-  <li><a href="/posts/second/">2. My Data</a>  </li>
-  
-  <li><a href="/posts/third/">3. Worldbuilding</a>  </li>
-  
-</ul>
-
- 
-
-  <!-- _includes/footer.njk -->
+   <!-- _includes/footer.njk -->
 <footer>
 
   <style>
@@ -87,6 +88,102 @@ by Melisa Li</p>
   <p>melisa li © 2025</p>
 </footer>
 
-</body>
+  <!-- Load THREE.JS FIRST -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
 
+  <!-- WebGL script AFTER Three.js -->
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("sugar-webgl");
+
+    // --- SCENE ---
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0xffffff);
+
+    const camera = new THREE.PerspectiveCamera(
+      45,
+      container.clientWidth / container.clientHeight,
+      0.1,
+      1000
+    );
+    camera.position.set(0, 2, 7);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    container.appendChild(renderer.domElement);
+
+    // --- LIGHTING ---
+    scene.add(new THREE.DirectionalLight(0xffffff, 1).position.set(5, 10, 5));
+    scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+
+    // --- MATERIAL ---
+    const material = new THREE.MeshStandardMaterial({
+      color: 0xffffff,
+      roughness: 1.0,
+      metalness: 0.0
+    });
+
+    function makeCube() {
+      const geo = new THREE.BoxGeometry(1, 1, 1);
+      return new THREE.Mesh(geo, material);
+    }
+
+    // --- CREATE 5 CUBES ---
+    const cubes = [];
+    const radius = 3;
+
+    for (let i = 0; i < 5; i++) {
+      const angle = (i / 5) * Math.PI * 2;
+      const cube = makeCube();
+      cube.position.set(Math.cos(angle) * radius, 0, Math.sin(angle) * radius);
+      cube.userData.link = "/page" + (i + 1) + "/"; 
+      scene.add(cube);
+      cubes.push(cube);
+    }
+
+    // --- CLICK HANDLING ---
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+
+    renderer.domElement.addEventListener("click", (event) => {
+      const rect = renderer.domElement.getBoundingClientRect();
+      mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+      mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+      raycaster.setFromCamera(mouse, camera);
+      const hit = raycaster.intersectObjects(cubes);
+      if (hit.length > 0) window.location.href = hit[0].object.userData.link;
+    });
+
+    // --- ANIMATION ---
+    function animate() {
+      requestAnimationFrame(animate);
+
+      const t = Date.now() * 0.0005;
+
+      cubes.forEach((cube, i) => {
+        const angle = t + (i * Math.PI * 2 / 5);
+        cube.position.x = Math.cos(angle) * radius;
+        cube.position.z = Math.sin(angle) * radius;
+
+        cube.rotation.x += 0.01;
+        cube.rotation.y += 0.01;
+      });
+
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // --- RESIZE ---
+    window.addEventListener("resize", () => {
+      camera.aspect = container.clientWidth / container.clientHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(container.clientWidth, container.clientHeight);
+    });
+  });
+  </script>
+
+</body>
 </html>
