@@ -1,7 +1,11 @@
 ---
-title: 。°。°。°。° my home 。°。°。°。°
+title: 。°。°。°。° Sugar for Your Tea 。°。°。°。°
 layout: base.njk
 ---
 
-# 
-hi i am melisa & this is my collection of images 
+# Core Systems Final Fa25
+
+
+Documentation Page for "Sugar for Your Tea"
+<br>
+Sculpture with Found Items + Sugar
