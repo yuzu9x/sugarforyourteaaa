@@ -1,147 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!--- base.njk ---> 
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-      @font-face {
-        font-family: 'MainFont';
-        src: url("{{ '/assets/fonts/MainFont.ttf' | prefixedUrl }}") format('truetype');
-        font-weight: normal;
-        font-style: normal;
-      }
+  <style>
+  @font-face {
+    font-family: 'MainFont';
+    src: url("{{ '/assets/fonts/MainFont.ttf' | prefixedUrl }}") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
 
-      #sugar-webgl {
-        width: 100%;
-        height: 500px;
-        margin-top: 40px;
-      }
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: #ffffff;
+    font-family: 'MainFont', Arial, sans-serif;
+  }
 
-      canvas {
-        display: block;
-      }
-    </style>
+  /* Circle container */
+  .sugar-circle {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin: 60px auto;
+    perspective: 1200px;
+    animation: spin-circle 30s linear infinite;
+  }
 
-    <title>{{ title }}</title>
-    <link rel="stylesheet" href="{{'/styles/style.css' | prefixedUrl }}">
+  /* Cube wrapper for circular placement */
+  .cube-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    margin-left: -40px;
+    margin-top: -40px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* Floating text label */
+  .cube-label {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #2d3748;
+    font-size: 1.5rem;
+    white-space: nowrap;
+    pointer-events: none;
+    text-align: center;
+    opacity: 0.8;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .cube-wrapper:hover .cube-label {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px);
+  }
+
+  /* Individual cubes */
+  .cube {
+    width: 80px;
+    height: 80px;
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease;
+    animation: float 3s ease-in-out infinite;
+    position: relative;
+  }
+
+  .cube-wrapper:hover .cube {
+    transform: scale(1.3) rotateX(15deg) rotateY(15deg);
+    animation-play-state: paused;
+  }
+
+  /* Cube faces */
+  .face {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border: 1px solid #e0e0e0;
+    box-shadow: 
+      inset -2px -2px 6px rgba(0,0,0,0.1),
+      inset 2px 2px 6px rgba(255,255,255,0.9),
+      0 4px 8px rgba(0,0,0,0.15);
+    background-image: 
+      radial-gradient(circle at 20% 30%, rgba(255,255,255,0.8) 1px, transparent 1px),
+      radial-gradient(circle at 60% 70%, rgba(220,220,220,0.3) 1px, transparent 1px),
+      radial-gradient(circle at 80% 20%, rgba(240,240,240,0.4) 1px, transparent 1px);
+    background-size: 4px 4px, 6px 6px, 5px 5px;
+    border-radius: 2px;
+  }
+
+  /* Cube face positions */
+  .front  { transform: rotateY(0deg) translateZ(40px); }
+  .back   { transform: rotateY(180deg) translateZ(40px); }
+  .right  { transform: rotateY(90deg) translateZ(40px); }
+  .left   { transform: rotateY(-90deg) translateZ(40px); }
+  .top    { transform: rotateX(90deg) translateZ(40px); }
+  .bottom { transform: rotateX(-90deg) translateZ(40px); }
+
+  /* Position cubes in a circle */
+  .cube-wrapper:nth-child(1) { transform: rotate(0deg) translate(200px) rotate(0deg); }
+  .cube-wrapper:nth-child(2) { transform: rotate(72deg) translate(200px) rotate(-72deg); }
+  .cube-wrapper:nth-child(3) { transform: rotate(144deg) translate(200px) rotate(-144deg); }
+  .cube-wrapper:nth-child(4) { transform: rotate(216deg) translate(200px) rotate(-216deg); }
+  .cube-wrapper:nth-child(5) { transform: rotate(288deg) translate(200px) rotate(-288deg); }
+  .cube-wrapper:nth-child(6) { transform: rotate(60deg) translate(200px) rotate(-60deg); }
+  .cube-wrapper:nth-child(7) { transform: rotate(120deg) translate(200px) rotate(-120deg); }
+  .cube-wrapper:nth-child(8) { transform: rotate(180deg) translate(200px) rotate(-180deg); }
+  .cube-wrapper:nth-child(9) { transform: rotate(240deg) translate(200px) rotate(-240deg); }
+  .cube-wrapper:nth-child(10) { transform: rotate(300deg) translate(200px) rotate(-300deg); }
+
+  /* Add staggered animation delays */
+  .cube-wrapper:nth-child(1) .cube { animation-delay: 0s; }
+  .cube-wrapper:nth-child(2) .cube { animation-delay: 0.6s; }
+  .cube-wrapper:nth-child(3) .cube { animation-delay: 1.2s; }
+  .cube-wrapper:nth-child(4) .cube { animation-delay: 1.8s; }
+  .cube-wrapper:nth-child(5) .cube { animation-delay: 2.4s; }
+
+  /* Circle rotation animation */
+  @keyframes spin-circle {
+    from { transform: rotateZ(0deg); }
+    to { transform: rotateZ(360deg); }
+  }
+
+  /* Individual cube floating animation */
+  @keyframes float {
+    0%, 100% { 
+      transform: translateY(0px) rotateX(5deg) rotateY(5deg);
+    }
+    50% { 
+      transform: translateY(-15px) rotateX(-5deg) rotateY(-5deg);
+    }
+  }
+
+  /* Content styling */
+  .h1main {
+    text-align: center;
+    color: #2d3748;
+    font-size: 2.5rem;
+    margin-top: 40px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  }
+
+  main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+  }
+
+  /* sugar cubes section */
+  .posts-section {
+    max-width: 900px;
+    margin: 20px auto 60px;
+    padding: 20px;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .sugar-circle {
+      width: 300px;
+      height: 300px;
+    }
+
+    .cube-wrapper:nth-child(1) { transform: rotate(0deg) translate(120px) rotate(0deg); }
+    .cube-wrapper:nth-child(2) { transform: rotate(72deg) translate(120px) rotate(-72deg); }
+    .cube-wrapper:nth-child(3) { transform: rotate(144deg) translate(120px) rotate(-144deg); }
+    .cube-wrapper:nth-child(4) { transform: rotate(216deg) translate(120px) rotate(-216deg); }
+    .cube-wrapper:nth-child(5) { transform: rotate(288deg) translate(120px) rotate(-288deg); }
+
+    .cube, .face {
+      width: 60px;
+      height: 60px;
+    }
+
+    .cube-wrapper {
+      width: 60px;
+      height: 60px;
+      margin-left: -30px;
+      margin-top: -30px;
+    }
+
+    .face.front, .face.back, .face.right, .face.left { transform: rotateY(var(--rot, 0deg)) translateZ(30px); }
+    .face.top, .face.bottom { transform: rotateX(var(--rot, 90deg)) translateZ(30px); }
+  }
+  </style>
+
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="{{'/styles/style.css' | prefixedUrl }}">
 </head>
 
 <body>
-
   {% include "nav.njk" %}
 
   <h1 class="h1main">{{ title }}</h1>
 
-  <!-- WebGL container (ONLY ONE!) -->
-  <div id="sugar-webgl"></div>
+  <!-- Rotating 3D sugar cube circle for posts -->
+  <section class="posts-section">
+    <div class="sugar-circle">
+      {% for post in collections.post %}
+        <a href="{{ post.url | prefixedUrl }}" class="cube-wrapper" title="{{ post.data.title }}">
+          <div class="cube">
+            <div class="face front"></div>
+            <div class="face back"></div>
+            <div class="face left"></div>
+            <div class="face right"></div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+          </div>
+          <span class="cube-label">{{ post.data.title }}</span>
+        </a>
+      {% endfor %}
+    </div>
+  </section>
 
   <main>{{ content | safe }}</main>
 
-  <ul class="posts-list">
-    {% for post in collections.post %}
-      <li><a href="{{ post.url | prefixedUrl}}">{{ post.data.title }}</a></li>
-    {% endfor %}
-  </ul>
-
   {% include "footer.njk" %}
-
-  <!-- Load THREE.JS FIRST -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
-
-  <!-- WebGL script AFTER Three.js -->
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const container = document.getElementById("sugar-webgl");
-
-    // --- SCENE ---
-    const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xffffff);
-
-    const camera = new THREE.PerspectiveCamera(
-      45,
-      container.clientWidth / container.clientHeight,
-      0.1,
-      1000
-    );
-    camera.position.set(0, 2, 7);
-
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
-    container.appendChild(renderer.domElement);
-
-    // --- LIGHTING ---
-    scene.add(new THREE.DirectionalLight(0xffffff, 1).position.set(5, 10, 5));
-    scene.add(new THREE.AmbientLight(0xffffff, 0.5));
-
-    // --- MATERIAL ---
-    const material = new THREE.MeshStandardMaterial({
-      color: 0xffffff,
-      roughness: 1.0,
-      metalness: 0.0
-    });
-
-    function makeCube() {
-      const geo = new THREE.BoxGeometry(1, 1, 1);
-      return new THREE.Mesh(geo, material);
-    }
-
-    // --- CREATE 5 CUBES ---
-    const cubes = [];
-    const radius = 3;
-
-    for (let i = 0; i < 5; i++) {
-      const angle = (i / 5) * Math.PI * 2;
-      const cube = makeCube();
-      cube.position.set(Math.cos(angle) * radius, 0, Math.sin(angle) * radius);
-      cube.userData.link = "/page" + (i + 1) + "/"; 
-      scene.add(cube);
-      cubes.push(cube);
-    }
-
-    // --- CLICK HANDLING ---
-    const raycaster = new THREE.Raycaster();
-    const mouse = new THREE.Vector2();
-
-    renderer.domElement.addEventListener("click", (event) => {
-      const rect = renderer.domElement.getBoundingClientRect();
-      mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-      mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
-
-      raycaster.setFromCamera(mouse, camera);
-      const hit = raycaster.intersectObjects(cubes);
-      if (hit.length > 0) window.location.href = hit[0].object.userData.link;
-    });
-
-    // --- ANIMATION ---
-    function animate() {
-      requestAnimationFrame(animate);
-
-      const t = Date.now() * 0.0005;
-
-      cubes.forEach((cube, i) => {
-        const angle = t + (i * Math.PI * 2 / 5);
-        cube.position.x = Math.cos(angle) * radius;
-        cube.position.z = Math.sin(angle) * radius;
-
-        cube.rotation.x += 0.01;
-        cube.rotation.y += 0.01;
-      });
-
-      renderer.render(scene, camera);
-    }
-
-    animate();
-
-    // --- RESIZE ---
-    window.addEventListener("resize", () => {
-      camera.aspect = container.clientWidth / container.clientHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(container.clientWidth, container.clientHeight);
-    });
-  });
-  </script>
 
 </body>
 </html>
