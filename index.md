@@ -9,3 +9,5 @@ layout: base.njk
 Documentation Page for "Sugar for Your Tea"
 <br>
 Sculpture with Found Items + Sugar
+<br>
+by Melisa Li
