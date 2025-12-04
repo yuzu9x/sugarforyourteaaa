@@ -1,6 +1,6 @@
 ---
-title: °✥✤✣ sherbet
-date: 2025-08-03
+title: 2. My Data
+
 tags: post
 layout: post.njk
 ---

@@ -1,113 +1,121 @@
+/* Define MainFont for headers and titles */
 @font-face {
-    font-family: 'MainFont';
-    /*src: url( '/assets/fonts/MainFont.ttf') format('truetype');
-    src: url("{{ '/assets/fonts/MainFont.ttf' | prefixedUrl }}") format('truetype');*/
-    font-weight: normal;
-    font-style: normal;
-  }
-  
-  /* Base layout */
-  body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: 'Times New Roman', Times, serif; /* Set body text to Times New Roman */
-  }
-  
-  /* HEADER LAYOUT */
-  .header {
-    display: flex;
-    align-items: center; 
-    justify-content: space-between; 
-    width: 100%;
-    padding: 20px 40px;
-    box-sizing: border-box;
-  }
-  
-  /* LOGO */
+  font-family: 'MainFont';
+  src: url('/assets/fonts/MainFont.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
-  .logo {
-    width: 200px;
-    height: auto;
-    margin: 10px;
-  }
+/* Define BodyFont for paragraph text */
+@font-face {
+  font-family: 'BodyFont';
+  src: url('/assets/fonts/standard.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
-  .logo2 {
-    width: 100px;
-    height: auto;
-    margin: 0;
-  }
-  
-  /* NAVIGATION */
-  nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 30px;
-    display: flex;
-    gap: 30px;
-    font-size: 20px;
-    font-family: 'MainFont', 'Courier New', Courier, monospace; /* Keep MainFont for navigation */
-  }
-  
-  nav a {
-    text-decoration: none;
-    color: #8abab0;
-  }
-  
-  nav a:hover {
-    color: #b2ede1;
-  }
-  
-  /* MAIN CONTENT */
-  main {
-    max-width: 800px;
-    width: 100%;
-    text-align: center;
-    margin-top: 0px;
-    font-family: 'Times New Roman', Times, serif; /* Set main content to Times New Roman */
-  }
-  
-  .posts-list {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-    max-width: 800px;
-    width: 100%;
-  }
-  
-  .posts-list li {
-    margin: 10px 0;
-    list-style: none;  
-    padding: 0;       
-    text-align: left; 
-    margin-left: 25%; 
-  }
-  
-  .posts-list a {
-    text-decoration: none;
-    color: #8abab0;
-  }
-  
-  .posts-list a:hover {
-    color: #b2ede1;
-  }
-  
-  /* ARTICLE / POST STYLES */
-  .h1post {
-    margin: 20px 0px;
-    text-align: center;
-    font-family: 'MainFont', 'Courier New', Courier, monospace; /* Keep MainFont for post headers */
-  }
-  
-  .h1main {
-    font-family: 'MainFont', 'Courier New', Courier, monospace; /* Keep MainFont for main headers */
-    margin-top: 0px;
-  }
-  
-  /* FOOTER */
-  footer {
-    margin-top: 60px;
-    font-family: 'Times New Roman', Times, serif; /* Set footer text to Times New Roman */
-  }
+/* Base layout */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'BodyFont', 'Times New Roman', Times, serif; /* Use BodyFont for body text */
+}
+
+/* HEADER LAYOUT */
+.header {
+  display: flex;
+  align-items: center; 
+  justify-content: space-between; 
+  width: 100%;
+  padding: 20px 40px;
+  box-sizing: border-box;
+}
+
+/* LOGO */
+.logo {
+  width: 200px;
+  height: auto;
+  margin: 10px;
+}
+
+.logo2 {
+  width: 100px;
+  height: auto;
+  margin: 0;
+}
+
+/* NAVIGATION */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 30px;
+  display: flex;
+  gap: 30px;
+  font-size: 20px;
+  font-family: 'MainFont', 'Courier New', Courier, monospace; /* Use MainFont for navigation */
+}
+
+nav a {
+  text-decoration: none;
+  color: #7575a6;
+}
+
+nav a:hover {
+  color: #aaaad3;
+}
+
+/* MAIN CONTENT */
+main {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  margin-top: 0px;
+  font-family: 'BodyFont', 'Times New Roman', Times, serif; /* Use BodyFont for main content */
+}
+
+.posts-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  max-width: 800px;
+  width: 100%;
+  align-content: center;
+}
+
+.posts-list li {
+  margin: 10px 0;
+  list-style: none;  
+  padding: 0;       
+  text-align: left; 
+  margin-left: 25%; 
+}
+
+.posts-list a {
+  text-decoration: none;
+  color: #7575a6;
+}
+
+.posts-list a:hover {
+  color: #aaaad3;
+}
+
+/* ARTICLE / POST STYLES */
+.h1post {
+  margin: 20px 0px;
+  text-align: center;
+  font-family: 'MainFont', 'Courier New', Courier, monospace; /* Use MainFont for post headers */
+}
+
+.h1main {
+  font-family: 'MainFont', 'Courier New', Courier, monospace; /* Use MainFont for main headers */
+  margin-top: 0px;
+}
+
+/* FOOTER */
+footer {
+  margin-top: 60px;
+  font-family: 'BodyFont', 'Times New Roman', Times, serif; /* Use BodyFont for footer text */
+}

@@ -1,6 +1,6 @@
 ---
-title: °✥✤✣ lace in my skin
-date: 2025-09-09
+title:  5. Final Build
+
 tags: post
 layout: post.njk
 ---

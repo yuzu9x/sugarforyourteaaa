@@ -1,5 +1,5 @@
 ---
-title: 。°。°。°。° Sugar for Your Tea 。°。°。°。°
+title: Sugar for Your Tea
 layout: base.njk
 ---
 

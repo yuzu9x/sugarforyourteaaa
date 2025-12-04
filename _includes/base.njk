@@ -21,15 +21,14 @@
   {% include "nav.njk" %}
 
  
-  <img src="{{ '/assets/logos/melisalogo.png' | prefixedUrl }}" alt="melisa" class="logo">
-
-  <img src="{{ '/assets/images/curtain.jpg' | prefixedUrl }}" alt="curtain" 
-    width="600"
-    height="auto"
-    style="margin: 30px 10px; height: auto;"
-    >
+  
 
   <h1 class="h1main">{{ title }}</h1>
+  <img src="{{ '/assets/images/sugarcubes.jpg' | prefixedUrl }}" alt="sugar cubes" 
+    width="400"
+    height="200"
+    style="margin: 0px 10px; "
+    >
   
   <main>{{ content | safe }}</main>
  
@@ -38,15 +37,11 @@
 <ul class="posts-list">
 	<!-- loops through all of our md files with the tag 'post' --> 
   {% for post in collections.post %}
-  <li><a href="{{ post.url | prefixedUrl}}">{{ post.data.title }}</a> – {{ post.date | readableDate  }}</li>
+  <li><a href="{{ post.url | prefixedUrl}}">{{ post.data.title }}</a>  </li>
   {% endfor %}
 </ul>
 
-  <img src="{{ '/assets/images/bannermelisa.jpg' | prefixedUrl }}" alt="banner" 
-    width="600"
-    height="auto"
-    style="margin: 40px 10px; "
-    >
+ 
 
  {% include "footer.njk" %}
 
