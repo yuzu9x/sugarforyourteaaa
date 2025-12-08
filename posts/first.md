@@ -15,6 +15,9 @@ I tried to tie this assignment to something mundane that I encounter on the dail
 <br>
 Sugar would be used to build homes, tools, 
 
+Sugar MEMORIAL for the deceased
+
+
 
 
 <img src="{{ '/assets/images/sugarforyourtea (1).png' | prefixedUrl }}" alt="lace" style="width: 400px; margin: 40px 0;">

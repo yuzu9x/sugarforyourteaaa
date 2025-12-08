@@ -1,7 +1,7 @@
 /* Define MainFont for headers and titles */
 @font-face {
   font-family: 'MainFont';
-  src: url('/assets/fonts/MainFont.TTF') format('truetype');
+  src: url('/assets/fonts/erika.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -21,7 +21,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'BodyFont', 'Times New Roman', Times, serif; /* Use BodyFont for body text */
+  font-family: 'BodyFont', 'Times New Roman', Times, serif;
 }
 
 /* HEADER LAYOUT */
@@ -34,19 +34,6 @@ body {
   box-sizing: border-box;
 }
 
-/* LOGO */
-.logo {
-  width: 200px;
-  height: auto;
-  margin: 10px;
-}
-
-.logo2 {
-  width: 100px;
-  height: auto;
-  margin: 0;
-}
-
 /* NAVIGATION */
 nav ul {
   list-style: none;
@@ -55,7 +42,7 @@ nav ul {
   display: flex;
   gap: 30px;
   font-size: 20px;
-  font-family: 'MainFont', 'Courier New', Courier, monospace; /* Use MainFont for navigation */
+  font-family: 'MainFont', 'Courier New', Courier, monospace; /* Changed back to MainFont */
 }
 
 nav a {
@@ -73,7 +60,7 @@ main {
   width: 100%;
   text-align: center;
   margin-top: 0px;
-  font-family: 'BodyFont', 'Times New Roman', Times, serif; /* Use BodyFont for main content */
+  font-family: 'BodyFont', 'Times New Roman', Times, serif;
 }
 
 .posts-list {
@@ -106,16 +93,16 @@ main {
 .h1post {
   margin: 20px 0px;
   text-align: center;
-  font-family: 'MainFont', 'Courier New', Courier, monospace; /* Use MainFont for post headers */
+  font-family: 'MainFont', 'Courier New', Courier, monospace; /* Changed back to MainFont */
 }
 
 .h1main {
-  font-family: 'MainFont', 'Courier New', Courier, monospace; /* Use MainFont for main headers */
+  font-family: 'MainFont', 'Courier New', Courier, monospace; /* Changed back to MainFont */
   margin-top: 0px;
 }
 
 /* FOOTER */
 footer {
   margin-top: 60px;
-  font-family: 'BodyFont', 'Times New Roman', Times, serif; /* Use BodyFont for footer text */
+  font-family: 'BodyFont', 'Times New Roman', Times, serif;
 }
