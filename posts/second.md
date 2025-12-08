@@ -1,10 +1,10 @@
 ---
-title: 2. My Data
+title: Data
 
 tags: post
 layout: post.njk
 ---
+# Data
+Here
 
-my sherbet that is pink
 
-<img src="{{ '/assets/images/IMG_2410.png' | prefixedUrl }}" alt="sherbet" style="width: 400px;">

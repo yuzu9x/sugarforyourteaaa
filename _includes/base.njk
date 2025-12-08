@@ -20,7 +20,7 @@
     font-family: 'MainFont', Arial, sans-serif;
   }
 
-  /* Circle container */
+/* Circle for Sugarcubes to Rotate */
   .sugar-circle {
     position: relative;
     width: 500px;
@@ -30,7 +30,6 @@
     animation: spin-circle 30s linear infinite;
   }
 
-  /* Cube wrapper for circular placement */
   .cube-wrapper {
     position: absolute;
     top: 50%;
@@ -43,7 +42,7 @@
     cursor: pointer;
   }
 
-  /* Floating text label */
+  /* Floating text labels */
   .cube-label {
     position: absolute;
     bottom: -40px;
@@ -54,8 +53,9 @@
     white-space: nowrap;
     pointer-events: none;
     text-align: center;
-    opacity: 0.8;
+    opacity: 0.9;
     transition: opacity 0.3s, transform 0.3s;
+    animation: counter-spin-circle 40s linear infinite;
   }
 
   .cube-wrapper:hover .cube-label {
@@ -69,12 +69,23 @@
     height: 80px;
     transform-style: preserve-3d;
     transition: transform 0.4s ease;
-    animation: float 3s ease-in-out infinite;
+    animation: float 3s ease-in-out infinite, cube-spin 8s linear infinite;
     position: relative;
+    transform: rotateX(-20deg) rotateY(-20deg);
   }
 
   .cube-wrapper:hover .cube {
-    transform: scale(1.3) rotateX(15deg) rotateY(15deg);
+    transform: scale(1.3);
+    animation-play-state: paused;
+  }
+
+  /* Pause the entire circle rotation on hover */
+  .sugar-circle:has(.cube-wrapper:hover) {
+    animation-play-state: paused;
+  }
+
+  /* Also pause label rotation when circle is paused */
+  .sugar-circle:has(.cube-wrapper:hover) .cube-label {
     animation-play-state: paused;
   }
 
@@ -83,27 +94,43 @@
     position: absolute;
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-    border: 1px solid #e0e0e0;
+    border: 1px solid rgba(200, 200, 200, 0.8);
     box-shadow: 
-      inset -2px -2px 6px rgba(0,0,0,0.1),
-      inset 2px 2px 6px rgba(255,255,255,0.9),
-      0 4px 8px rgba(0,0,0,0.15);
-    background-image: 
-      radial-gradient(circle at 20% 30%, rgba(255,255,255,0.8) 1px, transparent 1px),
-      radial-gradient(circle at 60% 70%, rgba(220,220,220,0.3) 1px, transparent 1px),
-      radial-gradient(circle at 80% 20%, rgba(240,240,240,0.4) 1px, transparent 1px);
-    background-size: 4px 4px, 6px 6px, 5px 5px;
-    border-radius: 2px;
+      inset 0 0 20px rgba(255,255,255,0.5),
+      0 0 10px rgba(0,0,0,0.1);
+    opacity: 0.9;
   }
 
-  /* Cube face positions */
-  .front  { transform: rotateY(0deg) translateZ(40px); }
-  .back   { transform: rotateY(180deg) translateZ(40px); }
-  .right  { transform: rotateY(90deg) translateZ(40px); }
-  .left   { transform: rotateY(-90deg) translateZ(40px); }
-  .top    { transform: rotateX(90deg) translateZ(40px); }
-  .bottom { transform: rotateX(-90deg) translateZ(40px); }
+  /* White for Sugarcube faces */
+  .front {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateZ(40px);
+  }
+
+  .back {
+    background: rgba(240, 240, 240, 0.9);
+    transform: rotateY(180deg) translateZ(40px);
+  }
+
+  .top {
+    background: rgba(255, 255, 255, 0.95);
+    transform: rotateX(90deg) translateZ(40px);
+  }
+
+  .right {
+    background: rgba(245, 245, 245, 0.9);
+    transform: rotateY(90deg) translateZ(40px);
+  }
+
+  .left {
+    background: rgba(235, 235, 235, 0.9);
+    transform: rotateY(-90deg) translateZ(40px);
+  }
+
+  .bottom {
+    background: rgba(220, 220, 220, 0.9);
+    transform: rotateX(-90deg) translateZ(40px);
+  }
 
   /* Position cubes in a circle */
   .cube-wrapper:nth-child(1) { transform: rotate(0deg) translate(200px) rotate(0deg); }
@@ -117,7 +144,6 @@
   .cube-wrapper:nth-child(9) { transform: rotate(240deg) translate(200px) rotate(-240deg); }
   .cube-wrapper:nth-child(10) { transform: rotate(300deg) translate(200px) rotate(-300deg); }
 
-  /* Add staggered animation delays */
   .cube-wrapper:nth-child(1) .cube { animation-delay: 0s; }
   .cube-wrapper:nth-child(2) .cube { animation-delay: 0.6s; }
   .cube-wrapper:nth-child(3) .cube { animation-delay: 1.2s; }
@@ -130,6 +156,12 @@
     to { transform: rotateZ(360deg); }
   }
 
+  /* Counter-rotation for labels to keep them horizontal */
+  @keyframes counter-spin-circle {
+    from { transform: translateX(-50%) rotateZ(0deg); }
+    to { transform: translateX(-50%) rotateZ(-360deg); }
+  }
+
   /* Individual cube floating animation */
   @keyframes float {
     0%, 100% { 
@@ -137,6 +169,16 @@
     }
     50% { 
       transform: translateY(-15px) rotateX(-5deg) rotateY(-5deg);
+    }
+  }
+
+  /* Individual cube spinning animation */
+  @keyframes cube-spin {
+    from { 
+      transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    to { 
+      transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
     }
   }
 
@@ -149,6 +191,27 @@
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
   }
 
+  /* Center teapot styling */
+  .teapot-link {
+    position: absolute;
+    top: 310px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    transition: transform 0.3s ease;
+  }
+
+  .teapot-link:hover {
+    transform: translateX(-50%) scale(1.1);
+  }
+
+  .teapot-image {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 10px;
+  }
+
   main {
     max-width: 800px;
     margin: 40px auto;
@@ -157,12 +220,12 @@
 
   /* sugar cubes section */
   .posts-section {
+    position: relative;
     max-width: 900px;
     margin: 20px auto 60px;
     padding: 20px;
   }
 
-  /* Responsive adjustments */
   @media (max-width: 768px) {
     .sugar-circle {
       width: 300px;
@@ -189,6 +252,11 @@
 
     .face.front, .face.back, .face.right, .face.left { transform: rotateY(var(--rot, 0deg)) translateZ(30px); }
     .face.top, .face.bottom { transform: rotateX(var(--rot, 90deg)) translateZ(30px); }
+
+    .teapot-image {
+      width: 100px;
+      height: 100px;
+    }
   }
   </style>
 
@@ -203,6 +271,11 @@
 
   <!-- Rotating 3D sugar cube circle for posts -->
   <section class="posts-section">
+    <!-- Center teapot image - outside the rotating circle -->
+    <a href="{{ '/teapot.md' | prefixedUrl }}" class="teapot-link">
+      <img src="{{ '../assets/images/myteapot.jpg' | prefixedUrl }}" alt="Teapot" class="teapot-image">
+    </a>
+    
     <div class="sugar-circle">
       {% for post in collections.post %}
         <a href="{{ post.url | prefixedUrl }}" class="cube-wrapper" title="{{ post.data.title }}">

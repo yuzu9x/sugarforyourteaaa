@@ -1,5 +1,5 @@
 ---
-title: 3. Worldbuilding
+title: Worldbuilding
 
 tags: post
 layout: post.njk

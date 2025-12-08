@@ -11,16 +11,107 @@
     font-weight: normal;
     font-style: normal;
     }
+
+    /* Sidebar Layout Styles */
+    body {
+      margin: 0;
+      font-family: 'MainFont', Arial, sans-serif;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: white;
+    }
+
+    .content-wrapper {
+      display: flex;
+      margin-top: 80px; /* Adjust based on your header height */
+    }
+
+    .sidebar {
+      position: fixed;
+      left: 0;
+      top: 80px; /* Adjust based on your header height */
+      width: 250px;
+      height: calc(100vh - 80px);
+      overflow-y: auto;
+      background: white;
+      padding: 20px;
+    }
+
+    .posts-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .posts-list li {
+      margin-bottom: 12px;
+    }
+
+    .posts-list a {
+      text-decoration: none;
+      color: #2d3748;
+      display: block;
+      padding: 8px 12px;
+      transition: color 0.2s;
+    }
+
+    .posts-list a:hover {
+      color: #1a202c;
+    }
+
+    main {
+      margin-left: 250px; /* Same as sidebar width */
+      flex: 1;
+      padding: 40px;
+      max-width: 900px;
+      margin-right: auto;
+    }
+
+    main article {
+      text-align: center;
+    }
+
+    main article h1 {
+      text-align: center;
+    }
+
+    main article p {
+      text-align: center;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+
+      main {
+        margin-left: 0;
+      }
+
+      .content-wrapper {
+        margin-top: 60px;
+      }
+    }
+
+    footer {
+      text-align: center;
+    }
     </style>
 
-    <title>5. Final Build</title>
+    <title>Final Build</title>
     <link rel="stylesheet" href="/styles/style.css">
   </head>
 
   <body>
     <!-- Header: logo and nav on same level -->
     <header class="header">
-      
        <!-- _includes/nav.njk -->
 <nav>
 	<style>
@@ -39,51 +130,54 @@
 </nav>
     </header>
 
+    <div class="content-wrapper">
+      <!-- Left Sidebar with Posts List -->
+      <aside class="sidebar">
+        <ul class="posts-list">
+          
+          <li>
+            <a href="/posts/fifth/">
+              Final Build
+            </a>
+          </li>
+          
+          <li>
+            <a href="/posts/first/">
+              Introduction
+            </a>
+          </li>
+          
+          <li>
+            <a href="/posts/fourth/">
+              Construction
+            </a>
+          </li>
+          
+          <li>
+            <a href="/posts/second/">
+              Data
+            </a>
+          </li>
+          
+          <li>
+            <a href="/posts/third/">
+              Worldbuilding
+            </a>
+          </li>
+          
+        </ul>
+      </aside>
 
-    <main>
-      <article>
-        <h1 class="h1post">5. Final Build</h1>
-      
-        <p>the skirt i was wearing left an imprint in my leg.
-<br><img src="/assets/images/IMG_2485.JPG" alt="lace" style="width: 400px; margin: 40px 0;"></p>
+      <!-- Main Content Area -->
+      <main>
+        <article>
+          <h1 class="h1post">Final Build</h1>
+          <p>the skirt i was wearing left an imprint in my leg.
+<br></p>
 
-      </article>
-
-     <ul class="posts-list">
-  
-  <li>
-    <a href="/posts/fifth/">
-      5. Final Build
-    </a>
-   </li>
-   
-  <li>
-    <a href="/posts/first/">
-      1. Introduction
-    </a>
-   </li>
-   
-  <li>
-    <a href="/posts/fourth/">
-      4. Construction
-    </a>
-   </li>
-   
-  <li>
-    <a href="/posts/second/">
-      2. My Data
-    </a>
-   </li>
-   
-  <li>
-    <a href="/posts/third/">
-      3. Worldbuilding
-    </a>
-   </li>
-   
-  </ul>
-
-    </main>
+        </article>
+      </main>
+    </div>
 
      <!-- _includes/footer.njk -->
 <footer>

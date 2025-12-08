@@ -1,10 +1,20 @@
 ---
-title:  1. Introduction
+title: Introduction
 
 tags: post
 layout: post.njk
 ---
+# Emerging Futures
+Hello everyone, 
+Here, I will be explaining my initial though process for the conception stage of my final assignment. 
+<br>
+When initially thinking about the premise of an emerging future, I couldn't pull myself away from envisioning a mini-civilization. I've consumed lots of media and obviously experienced many things in real life to know that patterns and habits can easily form in a growing society. 
+<br>
+I tried to tie this assignment to something mundane that I encounter on the daily, as well as many others. At the time this project was assigned, I was really into eating raw sugarcane and drinking sugarcane juice. From there, I had the idea to build a miniature town using sugar, humanizing the non-sentient ingredient. 
+<br> That what if one day impossibly into the future, sugar were a living breathing organism, and has gained monopoly over their own people as export? 
+<br>
+Sugar would be used to build homes, tools, 
 
-here is my list of materials
 
-<img src=" {{ '/assets/images/IMG_0363_2.png' | prefixedUrl }}" alt="hi its me" style="width: 300px;">
+
+<img src="{{ '/assets/images/sugarforyourtea (1).png' | prefixedUrl }}" alt="lace" style="width: 400px; margin: 40px 0;">
