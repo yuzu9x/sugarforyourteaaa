@@ -73,7 +73,7 @@ main {
   width: 100%;
   text-align: center;
   margin-top: 0px;
-  font-family: 'BodyFont', 'Times New Roman', Times, serif; 
+  font-family: 'BodyFont', 'Times New Roman', Times, serif; /* Use BodyFont for main content */
 }
 
 .posts-list {
