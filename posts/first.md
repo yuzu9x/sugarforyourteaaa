@@ -13,7 +13,7 @@ When initially thinking about the premise of an emerging future, I couldn't pull
 I tried to tie this assignment to something mundane that I encounter on the daily, as well as many others. At the time this project was assigned, I was really into eating raw sugarcane and drinking sugarcane juice. From there, I had the idea to build a miniature town using sugar, humanizing the non-sentient ingredient. 
 <br> That what if one day impossibly into the future, sugar were a living breathing organism, and has gained monopoly over their own people as export? 
 <br>
-Sugar would be used to build homes, tools, 
+Sugar would be used to build homes, tools, and makes up the population itself. Without the sugar, there would be nothing! In order to maintain a living and working village, sugar needs to be harvested and "used". 
 
 Sugar MEMORIAL for the deceased
 
