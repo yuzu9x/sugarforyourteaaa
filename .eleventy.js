@@ -15,11 +15,11 @@ module.exports = function(eleventyConfig) {
   const isProduction = process.env.ELEVENTY_ENV === "production";
 
   // Global variable for our path prefix, remember to insert your repo name
-  eleventyConfig.addGlobalData("pathPrefix", isProduction ? "/melisacollecting/" : "/");
+  eleventyConfig.addGlobalData("pathPrefix", isProduction ? "/sugarforyourteaaa/" : "/");
 
   // create a filter for our url prefix 
   eleventyConfig.addFilter("prefixedUrl", (url, prefix) => {
-    const finalPrefix = prefix || (isProduction ? "/melisacollecting/" : "/");
+    const finalPrefix = prefix || (isProduction ? "/sugarforyourteaaa/" : "/");
     return finalPrefix + url.replace(/^\/+/, "");
   });
 
