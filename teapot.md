@@ -4,6 +4,10 @@ layout: teapot.njk
 ---
 
 # 
-<img src="{{ 'assets/images/' | prefixedUrl }}" alt="Homes" style="width: 400px; margin: 40px 0;">
-hand-illustrated in photoshop
+<img src="{{ 'assets/images/sfyt_illust.jpg' | prefixedUrl }}" alt="Homes" style="width: 600px; margin: 40px 0;">
 <br>
+hand-illustrated in photoshop.
+
+## Interdependencies
+
+
