@@ -132,6 +132,7 @@
     transform: rotateX(-90deg) translateZ(40px);
   }
 
+  /* Position cubes in a circle */
   .cube-wrapper:nth-child(1) { transform: rotate(0deg) translate(200px) rotate(0deg); }
   .cube-wrapper:nth-child(2) { transform: rotate(72deg) translate(200px) rotate(-72deg); }
   .cube-wrapper:nth-child(3) { transform: rotate(144deg) translate(200px) rotate(-144deg); }
@@ -142,6 +143,8 @@
   .cube-wrapper:nth-child(8) { transform: rotate(180deg) translate(200px) rotate(-180deg); }
   .cube-wrapper:nth-child(9) { transform: rotate(240deg) translate(200px) rotate(-240deg); }
   .cube-wrapper:nth-child(10) { transform: rotate(300deg) translate(200px) rotate(-300deg); }
+
+  /* Add staggered animation delays - FIXED: Added all 10 cubes */
   .cube-wrapper:nth-child(1) .cube { animation-delay: 0s; }
   .cube-wrapper:nth-child(2) .cube { animation-delay: 0.6s; }
   .cube-wrapper:nth-child(3) .cube { animation-delay: 1.2s; }
@@ -159,6 +162,7 @@
     to { transform: rotateZ(360deg); }
   }
 
+  /* Counter-rotation for labels to keep them horizontal */
   @keyframes counter-spin-circle {
     from { transform: translateX(-50%) rotateZ(0deg); }
     to { transform: translateX(-50%) rotateZ(-360deg); }

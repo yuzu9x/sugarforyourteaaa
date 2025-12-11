@@ -7,7 +7,7 @@
   <style>
   @font-face {
     font-family: 'MainFont';
-    src: url("/sugarforyourteaaa/assets/fonts/MainFont.ttf") format('truetype');
+    src: url("/assets/fonts/MainFont.ttf") format('truetype');
     font-weight: normal;
     font-style: normal;
   }
@@ -144,12 +144,17 @@
   .cube-wrapper:nth-child(9) { transform: rotate(240deg) translate(200px) rotate(-240deg); }
   .cube-wrapper:nth-child(10) { transform: rotate(300deg) translate(200px) rotate(-300deg); }
 
-  /* Add staggered animation delays */
+  /* Add staggered animation delays - FIXED: Added all 10 cubes */
   .cube-wrapper:nth-child(1) .cube { animation-delay: 0s; }
   .cube-wrapper:nth-child(2) .cube { animation-delay: 0.6s; }
   .cube-wrapper:nth-child(3) .cube { animation-delay: 1.2s; }
   .cube-wrapper:nth-child(4) .cube { animation-delay: 1.8s; }
   .cube-wrapper:nth-child(5) .cube { animation-delay: 2.4s; }
+  .cube-wrapper:nth-child(6) .cube { animation-delay: 3.0s; }
+  .cube-wrapper:nth-child(7) .cube { animation-delay: 3.6s; }
+  .cube-wrapper:nth-child(8) .cube { animation-delay: 4.2s; }
+  .cube-wrapper:nth-child(9) .cube { animation-delay: 4.8s; }
+  .cube-wrapper:nth-child(10) .cube { animation-delay: 5.4s; }
 
   /* Circle rotation animation */
   @keyframes spin-circle {
@@ -227,7 +232,7 @@
     padding: 20px;
   }
 
-  /* Responsive adjustments */
+  /* Responsive adjustments - FIXED */
   @media (max-width: 768px) {
     .sugar-circle {
       width: 300px;
@@ -239,6 +244,11 @@
     .cube-wrapper:nth-child(3) { transform: rotate(144deg) translate(120px) rotate(-144deg); }
     .cube-wrapper:nth-child(4) { transform: rotate(216deg) translate(120px) rotate(-216deg); }
     .cube-wrapper:nth-child(5) { transform: rotate(288deg) translate(120px) rotate(-288deg); }
+    .cube-wrapper:nth-child(6) { transform: rotate(60deg) translate(120px) rotate(-60deg); }
+    .cube-wrapper:nth-child(7) { transform: rotate(120deg) translate(120px) rotate(-120deg); }
+    .cube-wrapper:nth-child(8) { transform: rotate(180deg) translate(120px) rotate(-180deg); }
+    .cube-wrapper:nth-child(9) { transform: rotate(240deg) translate(120px) rotate(-240deg); }
+    .cube-wrapper:nth-child(10) { transform: rotate(300deg) translate(120px) rotate(-300deg); }
 
     .cube, .face {
       width: 60px;
@@ -252,8 +262,12 @@
       margin-top: -30px;
     }
 
-    .face.front, .face.back, .face.right, .face.left { transform: rotateY(var(--rot, 0deg)) translateZ(30px); }
-    .face.top, .face.bottom { transform: rotateX(var(--rot, 90deg)) translateZ(30px); }
+    .face.front { transform: translateZ(30px); }
+    .face.back { transform: rotateY(180deg) translateZ(30px); }
+    .face.top { transform: rotateX(90deg) translateZ(30px); }
+    .face.right { transform: rotateY(90deg) translateZ(30px); }
+    .face.left { transform: rotateY(-90deg) translateZ(30px); }
+    .face.bottom { transform: rotateX(-90deg) translateZ(30px); }
 
     .teapot-image {
       width: 100px;
@@ -263,7 +277,7 @@
   </style>
 
   <title>Sugar for Your Tea</title>
-  <link rel="stylesheet" href="/sugarforyourteaaa/styles/style.css">
+  <link rel="stylesheet" href="/styles/style.css">
 </head>
 
 <body>
@@ -272,15 +286,15 @@
 	<style>
     @font-face {
     font-family: 'MainFont';
-    src: url("/sugarforyourteaaa/assets/fonts/MainFont.ttf") format('truetype');
+    src: url("/assets/fonts/MainFont.ttf") format('truetype');
     font-weight: normal;
     font-style: normal;
     }
     </style>
 	
 	<ul>
-	  <li><a href="/sugarforyourteaaa/">Home</a></li>
-	  <li><a href="/sugarforyourteaaa/about/">About</a></li>
+	  <li><a href="/">Home</a></li>
+	  <li><a href="/about/">About</a></li>
 	</ul>
 </nav>
 
@@ -290,13 +304,13 @@
   <section class="posts-section">
     <!-- Center teapot image - outside the rotating circle -->
    <a href="/teapot/" class="teapot-link">
-      <img src="/sugarforyourteaaa/../assets/images/myteapot.jpg" alt="Teapot" class="teapot-image">
+      <img src="/assets/images/myteapot.jpg" alt="Teapot" class="teapot-image">
     </a>
     
     <div class="sugar-circle">
       
         
-        <a href="/sugarforyourteaaa/posts/fifth/" class="cube-wrapper" title="Final Build">
+        <a href="/posts/fifth/" class="cube-wrapper" title="Final Build">
           <div class="cube">
             <div class="face front"></div>
             <div class="face back"></div>
@@ -310,7 +324,7 @@
         
       
         
-        <a href="/sugarforyourteaaa/posts/first/" class="cube-wrapper" title="Introduction">
+        <a href="/posts/first/" class="cube-wrapper" title="Introduction">
           <div class="cube">
             <div class="face front"></div>
             <div class="face back"></div>
@@ -324,7 +338,7 @@
         
       
         
-        <a href="/sugarforyourteaaa/posts/fourth/" class="cube-wrapper" title="Construction">
+        <a href="/posts/fourth/" class="cube-wrapper" title="Construction">
           <div class="cube">
             <div class="face front"></div>
             <div class="face back"></div>
@@ -338,7 +352,7 @@
         
       
         
-        <a href="/sugarforyourteaaa/posts/second/" class="cube-wrapper" title="Data">
+        <a href="/posts/second/" class="cube-wrapper" title="Data">
           <div class="cube">
             <div class="face front"></div>
             <div class="face back"></div>
@@ -352,7 +366,7 @@
         
       
         
-        <a href="/sugarforyourteaaa/posts/third/" class="cube-wrapper" title="Worldbuilding">
+        <a href="/posts/third/" class="cube-wrapper" title="Worldbuilding">
           <div class="cube">
             <div class="face front"></div>
             <div class="face back"></div>
@@ -382,7 +396,7 @@ by Melisa Li</p>
   <style>
     @font-face {
     font-family: 'MainFont';
-    src: url("/sugarforyourteaaa/assets/fonts/MainFont.ttf") format('truetype');
+    src: url("/assets/fonts/MainFont.ttf") format('truetype');
     font-weight: normal;
     font-style: normal;
     }
