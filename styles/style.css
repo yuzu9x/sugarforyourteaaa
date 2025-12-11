@@ -1,7 +1,7 @@
 /* Define MainFont for headers and titles */
 @font-face {
   font-family: 'MainFont';
-  src: url('/assets/fonts/erika.ttf') format('truetype');
+  src: url('/assets/fonts/Erika Ormig.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -9,7 +9,7 @@
 /* Define BodyFont for paragraph text */
 @font-face {
   font-family: 'BodyFont';
-  src: url('/assets/fonts/standard.TTF') format('truetype');
+  src: url('/assets/fonts/NATIONFF.TTF') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
