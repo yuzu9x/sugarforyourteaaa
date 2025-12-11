@@ -3,7 +3,7 @@ title: map
 layout: teapot.njk
 ---
 
-# what the hell
-
+# 
+<img src="{{ 'assets/images/' | prefixedUrl }}" alt="Homes" style="width: 400px; margin: 40px 0;">
 hand-illustrated in photoshop
 <br>
