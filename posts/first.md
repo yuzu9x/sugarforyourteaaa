@@ -5,6 +5,8 @@ tags: post
 layout: post.njk
 ---
 # Emerging Futures
+<img src="{{ '/assets/images/IMG_5170.JPG' | prefixedUrl }}" alt="Homes" style="width: 400px; margin: 40px 0;">
+
 Hello everyone, 
 Here, I will be explaining my initial though process for the conception stage of my final assignment. 
 <br>

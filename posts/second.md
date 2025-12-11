@@ -1,10 +1,14 @@
 ---
-title: Data
+title: Research
 
 tags: post
 layout: post.njk
 ---
-# Data
-Here
+
+### Here I present to you my thoughts and revelations, 
+### my connections and understandings, 
+### and my extrapolations through my research and lived experience.
+
+
 
 
