@@ -295,7 +295,7 @@
     <div class="sugar-circle">
       {% for post in collections.post %}
         {% if post.url != page.url %}
-        <a href="{{ post.url | url }}" class="cube-wrapper" title="{{ post.data.title }}">
+        <a href="{{ post.url | prefixedUrl }}" class="cube-wrapper" title="{{ post.data.title }}">
           <div class="cube">
             <div class="face front"></div>
             <div class="face back"></div>
