@@ -8,6 +8,6 @@ layout: teapot.njk
 <br>
 hand-illustrated in photoshop.
 
-## Interdependencies
+
 
 
