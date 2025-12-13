@@ -7,7 +7,7 @@
   <style>
   @font-face {
     font-family: 'MainFont';
-    src: url("{{ '/assets/fonts/Erika Ormig.ttf' | url }}") format('truetype');
+    src: url("{{ '/assets/fonts/Erika Ormig.ttf'  | prefixedUrl  }}") format('truetype');
     font-weight: normal;
     font-style: normal;
   }
@@ -288,8 +288,8 @@
   <!-- Rotating 3D sugar cube circle for posts -->
   <section class="posts-section">
     <!-- Center teapot image - outside the rotating circle -->
-   <a href="{{ '/teapot/' | url }}" class="teapot-link">
-      <img src="{{ '/assets/images/myteapot.jpg' | url }}" alt="Teapot" class="teapot-image">
+   <a href="{{ '/teapot/' | prefixedUrl  }}" class="teapot-link">
+      <img src="{{ '/assets/images/myteapot.jpg'  | prefixedUrl  }}" alt="Teapot" class="teapot-image">
     </a>
     
     <div class="sugar-circle">
