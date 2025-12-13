@@ -4,7 +4,7 @@ title: Worldbuilding
 tags: post
 layout: post.njk
 ---
-<img src="{{ '/assets/images/IMG_5154.JPG' | prefixedUrl }}" alt="Homes" style="width: 400px; margin: 40px 0;">
+<img src="{{ 'sugarforyourteaaa/assets/images/IMG_5154.JPG' | prefixedUrl }}" alt="Homes" style="width: 400px; margin: 40px 0;">
 
 ## Concept Statement:
 

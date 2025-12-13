@@ -17,7 +17,6 @@ I tried to tie this assignment to something mundane that I encounter on the dail
 <br>
 Sugar would be used to build homes, tools, and makes up the population itself. Without the sugar, there would be nothing! In order to maintain a living and working village, sugar needs to be harvested and "used". 
 
-Sugar MEMORIAL for the deceased
 
 
 
