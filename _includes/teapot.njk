@@ -4,10 +4,25 @@
 <head>
     <meta charset="UTF-8">
    
+    <style>
+    @font-face {
+    font-family: 'MainFont';
+    src: url('/assets/fonts/Erika Ormig.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+    /* Define BodyFont for paragraph text */
+    @font-face {
+    font-family: 'BodyFont';
+    src: url('/assets/fonts/NATIONFF.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
     </style>
 
     <title>{{ title }}</title>
-    <link rel="stylesheet" href="{{'sugarforyourteaaa/styles/style.css' | prefixedUrl }}">
+    <link rel="stylesheet" href="{{ 'sugarforyourteaaa/styles/style.css' | prefixedUrl }}">
     
     </head>
    <body>
